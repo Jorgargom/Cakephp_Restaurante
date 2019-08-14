@@ -3,6 +3,7 @@
 class MeserosController extends AppController {
     
     public $helpers = array('Html', 'Form');
+    public $components = array('Session');
 
     public function index() {
         $this->set('meseros', $this->Mesero->find('all'));
@@ -22,6 +23,18 @@ class MeserosController extends AppController {
         $this->set('mesero', $mesero);
     }
     
+    public function nuevo(){
+        if ($this->request->is('post')) {
+            $this->Mesero->create();
+            if ($this->Mesero->save($this->request->data)) {
+                $this->Session->setFlash('El mesero ha sido creado', 'default', array('class' => 'success'));
+                return $this->redirect(array('action' => 'index'));
+            }
+
+            $this->Session->setFlash('El mesero NO ha sido creado');
+
+        }
+    }
 
 
 

@@ -7,7 +7,9 @@
     <title>Meseros</title>
 </head>
 <body>
-    <h1>Lista de meseros</h1>
+    <h2>Lista de meseros</h2>
+
+    <?php echo $this->Html->link('Crear mesero', array('controller' => 'meseros', 'action' => 'nuevo')) ;?>
    
     <table>
         <tr>
@@ -26,11 +28,5 @@
         <?php endforeach; ?>     
     </table>
     
-    
-
-
-
-        
-
 </body>
 </html>
