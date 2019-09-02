@@ -35,6 +35,16 @@ class Mesero extends AppModel
             ),
         )
     );
+
+    public $hasMany = array(
+        'Mesa' => array(
+            'className' => 'Mesa',
+            'foreignKey' => 'mesero_id',
+            'conditions' => '',
+            'orden' => 'Mesa.serie DESC',
+            'dependent' => false
+        )
+    );
 }
 
 
